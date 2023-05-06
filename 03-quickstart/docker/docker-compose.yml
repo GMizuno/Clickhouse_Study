@@ -54,20 +54,19 @@ services:
           - '27016:27017'
       container_name: mongodb
       image: mongo:4.4.18
-      #restart: always
       logging:
           options:
               max-size: 1g
       environment:
           - MONGO_INITDB_ROOT_USERNAME=mongoadmin
           - MONGO_INITDB_ROOT_PASSWORD=mongoadmin
+      volumes:
+           - ./mongo_volume:/data/db
       
-    
 
 volumes:
   clickhouse:
   minio:
-  postgres: 
-  
+  postgres:
 
 

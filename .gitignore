@@ -283,6 +283,14 @@ poetry.toml
 # ruff
 .ruff_cache/
 
+# Data
+
+03-quickstart/docker/mongo_volume/*
+03-quickstart/docker/clickhouse_volume/*
+03-quickstart/docker/postgres_volume/*
+03-quickstart/docker/miniio_volume/*
+
+
 # LSP config files
 pyrightconfig.json
 
