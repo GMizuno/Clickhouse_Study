@@ -10,7 +10,7 @@ services:
     volumes:   
       - ./config_ch/config.xml:/etc/clickhouse-server/config.xml
       - ./config_ch/users.xml:/etc/clickhouse-server/users.xml
-      - clickhouse:/var/lib/clickhouse
+      - ./clickhouse_volume:/var/lib/clickhouse
     ulimits:
       nproc: 65535
       nofile:
@@ -25,7 +25,7 @@ services:
       - '9000:9000'
       - '9001:9001'
     volumes:
-      - minio:/data
+      - ./minio_volume:/minio
     environment:
       MINIO_ROOT_USER: minio_access_key
       MINIO_ROOT_PASSWORD: minio_secret_key
@@ -36,7 +36,6 @@ services:
       timeout: 5s
       retries: 60
 
-
   postgres:
     container_name: postgres
     image: postgres
@@ -45,7 +44,7 @@ services:
       POSTGRES_PASSWORD: postgres_password
       PGDATA: /data/postgres
     volumes:
-       - postgres:/data/postgres
+       - ./postgres_volume:/data/postgres
     ports:
       - "5433:5432"
   
@@ -62,11 +61,4 @@ services:
           - MONGO_INITDB_ROOT_PASSWORD=mongoadmin
       volumes:
            - ./mongo_volume:/data/db
-      
-
-volumes:
-  clickhouse:
-  minio:
-  postgres:
-
 
