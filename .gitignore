@@ -297,3 +297,4 @@ pyrightconfig.json
 # End of https://www.toptal.com/developers/gitignore/api/python,pycharm
 
 # Generated using ignr.py - github.com/Antrikshy/ignr.py
+/.idea/bigdataide_settings.xml
